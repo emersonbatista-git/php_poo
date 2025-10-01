@@ -1,0 +1,22 @@
+VANTAGENS DA PROGRAMAÇÃO EM POO
+
+* Confiavel - O isolamento entre as partes gera software seguro. Ao alterar uma parte, nenhuma outra é alterada.
+* Oportuno - Ao dividir tudo em partes, varias delas podem ser desenvolvidas em paralelo.
+* Manutenivel - Atualizar um software é mais facil. Uma pequena modificação vai beneficiar todas as partes que usarem o objeto
+* Extensivel - O software nao é estatico. Ele deve crescer para permanecer util.
+* Reutilizavel - podemos usar objetos de um sistema que criamos em outro sistema futuro.
+* Natural - Mais facil de entender. Voce se preocupa mais na funcionalidade do que nos detalhes de implementação.
+
+DEFINIÇÕES
+
+Classe - Define os atributos e metodos comuns que serão compartilhados por um objeto
+
+Objeto - É a instancia de uma classe. Quando eu idealizo uma classe e transformo (instancio) em objeto
+
+Exemplo: 
+Uma forma de biscoito pode fazer varias classes de biscoitos, como sabor, cor, cobertura, etc...
+
+Abstração - Dar foco no que realmente importa quando um objeto tem varias classes, exemplo: cadastro de aluno focar em idade, sexo, endereço, etc... Para modelo focar em altura, cor do cabelo, peso, etc...
+
+
+
