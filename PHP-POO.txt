@@ -19,4 +19,8 @@ Uma forma de biscoito pode fazer varias classes de biscoitos, como sabor, cor, c
 Abstração - Dar foco no que realmente importa quando um objeto tem varias classes, exemplo: cadastro de aluno focar em idade, sexo, endereço, etc... Para modelo focar em altura, cor do cabelo, peso, etc...
 
 
+****** CRIANDO CLASSES E OBJETOS ******
+
+
+
 
