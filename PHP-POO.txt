@@ -22,5 +22,103 @@ Abstração - Dar foco no que realmente importa quando um objeto tem varias clas
 ****** CRIANDO CLASSES E OBJETOS ******
 
 
+****** INDEX.PHP ******
+
+<body>
+    <?php 
+    require_once 'caneta.php';
+    $c1 = new Caneta;
+    $c1 ->cor = "Azul";
+    $c1 ->ponta = 0.5;
+    $c1->tampar();
+
+    
+
+    print_r($c1); 
+
+    echo"</br>";
+
+    $c2 = new Caneta;
+    $c2 ->cor = "Verde";
+    $c2 ->carga = 50;
+    $c2->tampar();
+
+   
+    
+
+    print_r($c2); 
+    
+    
+    
+    ?>
+    
+</body>
+
+
+****** CANETA.PHP *******
+
+<body>
+    <?php 
+    class Caneta {
+        var $modelo;
+        var $cor;
+        var $ponta;
+        var $carga;
+        var $tampada;
+
+        function rabiscar() {
+            if ($this->tampada == true) {
+                echo "<p>ERRO! Não posso rabiscar";   
+            }
+            
+            else {
+                echo "<p>Estou rabiscando...</p>";
+            }
+
+
+            
+
+        }
+
+        function tampar () {
+            $this->tampada = true;
+
+        }
+
+        function destampar() {
+            $this ->tampada = false;
+        }
+
+
+    }
+    
+    
+    
+    
+    ?>
+
+    
+</body>
+
+
+******* MUDANDO A VISIBILIDADE ********
+
+- Diagrama de Classe
+  Classe começa com letra maiusculas
+  Atributo com letra minusculas
+  Metedo com letra minusculas e com parenteses
+
++ public    - a classe atual e todas as outras classes podem ter acesso
+- privado   - Somente a classe atual
+# protegido - A classe atual e todas as suas sub-classes
+ 
+
+
+
+
+
+
+
+
 
 
