@@ -111,6 +111,17 @@ Abstração - Dar foco no que realmente importa quando um objeto tem varias clas
 + public    - a classe atual e todas as outras classes podem ter acesso
 - privado   - Somente a classe atual
 # protegido - A classe atual e todas as suas sub-classes
+
+
+***** METODOS ESPECIAIS *******
+get - Metodo acessor, para ter acesso ao determinado atributo mantendo a segunrança entre eles.
+
+set - Metodo modificadores, modificar determinado atributo mantendo a segunrança entre eles.
+
+__construct    - Metodo construtor, criar novo registro com informações padroes.
+
+
+
  
 
 
