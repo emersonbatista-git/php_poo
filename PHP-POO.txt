@@ -285,11 +285,166 @@ FimClasse
 
 PHP
 
-                                                                                                                      
-                                                                                                                             
-                                                                                                                             
-                                                                                                                             
-                                                                                                                             
+
+***** PILARES POO ****
+
+E H P ( Encapsulamento Herença Polimorfismo )
+
+* Encapsulamento - Ocultar partes independesntes da implementação, permitindo contruir partes invisiveis ao mundo exterior. Exemplo de uma pilha, o conteudo interno nao tem acesso ao externo e vice e versa. E nao importa como a pilha trabalha por dentro o que importa é o resultado final.
+Para o programa conversar com com as capsulas utilizamos as interfaces. Que sao um alista de serviços fornecidos por um componente. É o contato com o mundo exterior, que define o que pode ser feito com um objeto dessa classe.
+Encapsular nao é obrigatorio, mas é uma boa pratica para pruduzir Classes mais eficientes.
+Vantagens em encapsular:
+- Tornar mudanças invisiveis
+- Facilitar a reutilização do codigo
+- Reduzir efeitos colaterais
+
+Como encapsular?
+
+Interface nao tem atributos, tem apenas metodos.
+
+  <<interface>>                                             <<Classe>>
+   Controlador                                              ControleRemoto  
+=================                                          ---------------- //Todos os atributos serão privados, para nao serem alterados
++ligar()                                                    - volume
++desligar()                                                 - ligado
++abrirMenu()                                                - tocando
++fecharMenu()                                              ---------------- // Metodos 
++maisVolume()                                              +ligar()   
++menosVolume()                                             +desligar() 
++ligarMudo()                                               +abrirMenu()
++desligarMudo()                                            +fecharMenu() 
++play()                                                    +maisVolume()
++pause()                                                   +menosVolume()
+                                                           +menosVolume()
+                                                           +ligarMudo()
+                                                           +desligarMudo() 
+                                                           +play()
+                                                           +pause()
+                                                           +setVolume()
+                                                           +getVolume()
+                                                           +setLigado()                                                                    
+                                                           +getLigado()                                                                  
+                                                           +setTocando()                                                                  
+                                                           +getTocando()                                                                   
+                                                                           
+
+CODIGO
+
+interface Controlador
+//Metodos Abstratos - Metodos abstratos significa que nao serão desenvolvidos aqui, apenas iremos acionar a função.
+
+publico abstrato Metodo ligar()
+publico abstrato Metodo desligar()
+publico abstrato Metodo abrirMenu()
+publico abstrato Metodo fecharMenu()
+publico abstrato Metodo maisVolume()
+publico abstrato Metodo menosVolume()
+publico abstrato Metodo ligarMudo()
+publico abstrato Metodo desligarMudo()
+publico abstrato Metodo play()
+publico abstrato Metodo pause()
+
+
+
+
+FimInterface     
+
+classe ControleRemoto implementa Controlador
+
+//Atributos
+
+publico inteiro volume
+publico logico ligado
+publico logico tocando
+
+//Metodos Especiais
+publico Metodo Construtor()
+  volume - 50
+  ligado = falso
+  tocando = falso
+FimMetodo
+publico Metodo getvolume()
+retorne volume
+FimMetodo
+publico Metodo getligado()
+retorne ligado
+FimMetodo
+publico Metodo getTocando()
+retorne Tocando
+FimMetodo
+publico Metodo setvolume(v:inteiro)
+ volume = v
+FimMetodo
+publico Metodo setligado(l: logico)
+ ligado = l
+FimMetodo
+publico Metodo setTocando(t: logico)
+ tocando = t
+FimMetodo
+
+FimClasse
+
+classe ControleRemoto implementa Controlador
+  //Subscrevendo Metodos, retira a palavra abstrato
+
+publico  Metodo ligar()
+   setligado(verdadeiro)
+   FimMetodo
+publico  Metodo desligar()
+   setligado(falso)
+    FimMetodo
+publico  Metodo abrirMenu()
+   Escreva(getLigado())
+   Escreva(getVolume())
+    Para i = 0 ate getVolume() passo 10 faca
+      escreva("|")
+    FimPara
+     escreva (getTocando())
+   FimMetodo
+publico  Metodo fecharMenu()
+   Escreva ("Fechando Menu...)
+   FimMetodo
+publico  Metodo maisVolume()
+  Se (getLigado()) entao
+    setVolume(getVolume() + 1)
+  FimSe
+
+ FimMetodo
+publico  Metodo menosVolume()
+ Se (getLigado()) entao
+    setVolume(getVolume() - 1)
+  FimSe
+
+ FimMetodo
+
+publico  Metodo ligarMudo()
+  Se (getLigado() e getVolume() > 0) entao
+   setVolume(0)
+  FimSe
+
+publico  Metodo desligarMudo()
+  Se (getLigado() e getVolume() = 0) entao
+   setVolume(50)
+  FimSe
+publico  Metodo play()
+  Se (getLigado() e nao getTocando()) entao
+    setTocando(verdadeiro)
+  FimSe
+
+publico  Metodo pause()
+ Se (getLigado() e  getTocando()) entao
+    setTocando(falso)
+  FimSe
+
+
+FimClasse
+
+
+
+ 
+   
+   
+                                            
                                                                                                                              
                                                                                                                              
                                                                                                                              
