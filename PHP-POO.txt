@@ -173,7 +173,8 @@ __construct    Padrao status false e saldo zero
 
 
 
-ALGORITIMO                                                            
+******* CONTA EM BANCO *********
+                                                           
 Classe ContaBanco
  // Atributos
 publico numConta: Inteiro                                                                                                                             
@@ -283,7 +284,7 @@ publico Metodo getStatus()
 FimClasse       
 
 
-PHP
+
 
 
 ***** PILARES POO ****
@@ -328,7 +329,7 @@ Interface nao tem atributos, tem apenas metodos.
                                                            +getTocando()                                                                   
                                                                            
 
-CODIGO
+******  CONTROLE REMOTO *********
 
 interface Controlador
 //Metodos Abstratos - Metodos abstratos significa que nao serão desenvolvidos aqui, apenas iremos acionar a função.
@@ -438,6 +439,340 @@ publico  Metodo pause()
 
 
 FimClasse
+
+
+
+
+
+*****************************  LUTA EFC *************************************************************************************************************
+
+DIAGRAMA DE CLASSES
+1ª Classe
+
+Lutador
+------------------
+ // Atributos
+-nome
+-nacionalidade
+-idade
+-altura
+-peso
+-categoria
+-vitorias
+-derrotas
+-empates 
+------------------
+ // Metodos
++apresentar()
++status()
++ganharLuta()
++perderLuta()
++empatarLuta()
+------------------
+ // Metodos Especiais
+contrutor
+get
+set
+
+
+
+2ª Classe
+
+Luta
+----------------------
+-desafiado
+-desafiante
+-rounds
+-aprovada
+----------------------
+marcarLuta()
+lutar()
+
+
+
+
+******* ALGORITIMO ********
+
+Classe Lutador
+ //Atributos
+
+privado nome: Caracter
+privado nacionalidade: Caracter
+privado idade: Inteiro
+privado altura: Real
+privado peso: Real
+privado categoria: Caracter
+privado vitorias: Inteiro
+privado derrotas: Inteiro
+privado empates: Inteiro 
+
+//Metodos
+
+publico metodo apresentar()
+
+fim metodo
+
+publico metodo status()
+
+fim metodo
+
+publico metodo ganharLuta()
+
+fim metodo
+
+publico metodo perderLuta()
+
+fim metodo
+
+publico metodo empatarLuta()
+
+fim metodo
+
+// Metodos Especiais
+publico metodo construtor(no:Caractere, na:Caractere, id:Inteiro, al:Real, pe:Real, vi:Inteiro, de:Inteiro,em:Inteiro)
+	nome = no
+	nacionalidade = na
+	idade = id
+	altura = al
+	setPeso(pe)
+	vitorias = vi
+	derrotas = de
+	empates = em
+fim metodo
+
+publico metodo getNome()
+    retorne nome
+fim metodo
+
+publico metodo getNacionalidade()
+    retorne nacionalidade
+fim metodo
+
+publico metodo getIdade()
+    retorne idade
+fim metodo
+
+publico metodo getAltura()
+    retorne altura
+fim metodo
+
+publico metodo getPeso()
+    retorne peso
+fim metodo
+
+publico metodo getVitorias()
+    retorne vitorias
+fim metodo
+
+publico metodo getDerrotas()
+    retorne derrotas
+fim metodo
+
+publico metodo getEmpates()
+    retorne empates
+fim metodo
+
+publico metodo SetNome(no:Caracter)
+    nome = no
+Fim metodo
+
+publico metodo SetNacionaliodade(na:Caracter)
+    nocionalidade = na
+Fim metodo
+
+publico metodo SetIdade(id: Inteiro)
+    idade = id
+Fim metodo
+
+publico metodo SetAltura(al:Real)
+    altura = al
+Fim metodo
+
+publico metodo SetVitorias(vi:Inteiro)
+    vitorias = vi
+Fim metodo
+
+publico metodo SetDerrotas(de:Inteiro)
+    derrotas = de
+Fim metodo
+
+publico metodo SetEmpates(em:Inteiro)
+    empates = em
+Fim metodo
+
+publico metodo SetPeso(pe:Real)
+    peso = pe
+    setCategoria()
+Fim metodo
+
+privado metodo SetCategoria()
+    se(peso<52.2)entao
+      categoria = "Invalido"
+    senao se (peso <=70.3)entao
+      categoria = "Leva"
+    senao se (peso<=83.9)entao
+      categoria = "Medio"
+    senao se (peso<=120.2)entao
+      categoria = "Pesado"
+    senao
+      categoria = "Invalido"
+   fim Se
+
+
+Fim metodo
+
+publico metodo ganharLuta()
+  setVitorias(getVitorias() + 1)
+fim metodo
+
+publico metodo perderLuta()
+  setVitorias(getDerrotas() + 1)
+fim metodo
+
+publico metodo empatarLuta()
+  setVitorias(getEmpates() + 1)
+fim metodo
+
+publico metodo apresentar()
+   Escreva("Lutador: ", getNome())
+   Escreva("Origem: ", getNacionalidade())
+   Escreva(getIdade(), " anos")
+   Escreva("Pesando ", getPeso(), "Kg")
+   Escreva("Ganhou: " getVitorias())
+   Escreva("Perdeu: " getDerrotas())
+   Escreva("Empatou: " getEmpates())
+fim metodo
+
+publico metodo status()
+  Escreva(getNome())
+  Escreva("é um peso ", getCategoria())
+  Escreva(getVitorias(), " "vitorias")
+  Escreva(getDerrotas(), " derrotas")
+  Escreva( getEmpates(), "empates")
+fim metodo
+
+fimClasse
+
+
+
+//CLASSE LUTA
+
+Classe Luta
+  //Atributos
+privado desafiado: Lutador
+privado desafiante: Lutador
+privado rouns: Inteiro
+privado aprovada: logico
+
+// Metodos
+publico metodo marcarluta(l1, l2: Lutador)
+    se (l1.getCategoria() = l2.getCategoria()) e (l1<>l2) entao
+      aprovado = verdadeiro
+      desafiado = l1
+      desafiante = l2
+   senao
+      aprovado = falso
+      desafiado = null
+      desafiante = null
+   fimse
+fim metodo
+
+
+publico metodo lutar()
+   se (aprovada)
+    desafiado.apresentar()
+    desafiante.apresentar()
+    vencedor = aleatorio(0..2)
+       escolha (vencedor)
+
+         caso 0: //Empate
+           escreva("Empatou!")
+           desafiado.empatarLuta()
+           desafiante.empatarLuta()
+
+         caso 1: //Ganhou Desafiado
+            escreva (desafiado.getNome())
+            desafiado.ganharLuta()
+            desafiante.perderLuta()
+
+         caso 2: //Ganhou Desafiante
+            escreva (desafiaante.getNome())
+            desafiado.perderLuta()
+            desafiante.ganharLuta()
+
+        Fimescolha
+
+
+   senao
+    escreva ("Luta não pode acontecer")
+   fimse
+
+fim metodo
+
+//Metodos Especiais
+publico metodo setDesafiado(dd: Lutador)
+    desafiado = dd
+fim metodo
+
+publico metodo getDesafiado()
+    retorne desafiado
+fim metodo
+
+publico metodo setDesfiante(de: Lutador)
+    desafiante = de
+fim metodo
+
+publico metodo getDesafiante()
+    retorne desafiante
+fim metodo
+
+
+publico metodo setRounds(ro: inteiro)
+    rounds = ro
+fim metodo
+
+publico metodo getRouns()
+    retorne rounds
+fim metodo
+
+publico metodo setAprovada(ap: logico)
+    aprovada = ap
+fim metodo
+
+publico metodo getAprovada()
+    retorne aprovada
+fim metodo
+
+FimClasse
+
+
+// PROGRAMA PRINCIPAL
+
+L: VETOR[0..5]
+L[0] = novo lutador("Pretty Boy", "Franca", 31, 1.75, 68.9, 11, 3, 1)
+
+L[1] = novo lutador("Putsscript", "Brasil", 29, 1.68, 57.8, 14, 2, 3)
+
+L[2] = novo lutador("SnapShadow", "EUA", 35, 1.65, 80.9, 12, 2, 1)
+
+L[3] = novo lutador("Dead Code", "Australia", 28, 1.93, 81.6, 13, 0, 2)
+
+L[4] = novo lutador("Ufocobol", "Brasil", 37, 1.70, 119.3, 5, 4, 3)
+
+L[5] = novo lutador("Nerdaard", "EUA", 30, 1.81, 105.7, 12, 2, 4)
+
+L[0].apresentar()
+L[2].status()
+L[3].getCategoria()
+L[1].ganhatLuta()
+L[0].empatarLuta()
+
+UEC01 = novo Luta()
+UEC01.marcarLuta(l[0], l[1])
+UEC.lutar()
+
+
+
 
 
 
