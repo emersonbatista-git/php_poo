@@ -773,6 +773,29 @@ UEC.lutar()
 
 
 
+********  AULA 9 EXERCICIO **********
+
+    Pessoa                               Livro                    
+----------------                     -----------------
+-nome                                 -titulo
+-idade                                -autor
+-sexo                                 -totPaginas
+----------------                      -pagAtual
++fazerAniversario()                   -aberto 
+                                      -leitor
+                                    -------------------
+                                      detalhes()
+
+
+<<Interface>>  
+  Publicacao
+=================
++abrir()
++fechar()
++folear()
++avancarPag()
++voltarPag()
+
 
 
 
