@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../lib/storage.php'; $db=new FileDB(__DIR__.'/../data/mic'); $id=$_GET['id']??''; if($id)$db->delete($id); header('Location: ../index.php'); ?>
