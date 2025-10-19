@@ -1,1 +1,0 @@
-<?php require_once __DIR__.'/../lib/storage.php'; $db=new FileDB(__DIR__.'/../data/mic'); $id=$_GET['id']??''; $rec=$db->find($id); if(!$rec){http_response_code(404); exit;} header('Content-Type:application/json'); header('Content-Disposition: attachment; filename="mic-'.$id.'.json"'); echo json_encode($rec,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE); ?>

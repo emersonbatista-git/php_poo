@@ -1,1 +1,0 @@
-<?php require_once __DIR__.'/../lib/storage.php'; $db=new FileDB(__DIR__.'/../data/mic'); $id=$_POST['id']??''; $form=$_POST['form']??[]; $data=['form'=>$form]; if($id){$db->save($id,$data); header('Location: ../index.php?page=view&id='.urlencode($id));} else {$new=$db->save('',$data); header('Location: ../index.php?page=view&id='.urlencode($new));} ?>

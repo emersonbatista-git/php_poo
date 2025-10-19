@@ -1,1 +1,0 @@
-<?php ?></main><footer class='footer'><small>PHP puro • Flat-file JSON</small></footer></body></html>
