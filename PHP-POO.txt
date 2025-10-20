@@ -797,6 +797,124 @@ UEC.lutar()
 +voltarPag()
 
 
+************* HERENÇA ************
+
+Permite basear umanova classe na definição de uma outra classe previamente existente.
+A herença será aplicada tanto para as caracteristicas quanto para os comportamentos.
+
+                               Diagrama de classe
+
+                                    Pessoa
+                                    ----------
+                                    -nome
+                                    -idade
+                                    -sexo
+                                    ----------
+                                    +fazerAniversario()
+                                        /\
+                                        |
+                                        |
+Aluno ->->->->->->->->->->->->      funcionario <-<-<-<-<-<-<-<-     Professor
+-----------                         --------------                   ------------
+-matr                               -setor                           -especialidade
+-curso                              -trabalhando                     -salario
+-----------                         --------------                   --------------
++cancelarMatr()                     +mudarTrabalho()                 +receberAum()
+
+
+=====  Algoritimo =======
+
+Classe Pessoa                                     Classe Aluno estende Pessoa                                                            
+  //Atributos                                      //Atributos
+privado nome: caracter                            privado: matr:Inteiro                           
+privado idade: Inteiro                            privado: curso: Caracter                        
+privado sexo: Caracter                             //Metodos
+ //Metodos                                        publico metodo cancelarMatr() 
+publico metodo fazerAniv()                         (...)
+(...)                                             FimMetodo
+  fimMetodo                                        //Metodos Especiais
+ //Metodos Especiais                              publico metodo getMatr()
+publico metodo getNome()                           (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo getCurso()   
+publico metodo getIdade()                         (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo setMatr()
+publico metodo getSexo()                          (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo setCurso()
+publico metodo setNome()                          (...)
+(...)                                             FimMetodo
+FimMetodo
+publico metodo setIdade()
+(...)
+FimMetodo
+publico metodo setSexo()
+(...)
+FimMetodo
+
+FimClasse
+
+
+
+Classe Professor estende Pessoa                    Classe Funcionario estende Pessoa                                                            
+  //Atributos                                      //Atributos
+privado especialidade: caracter                    privado setor:Caracter                           
+privado salario: Inteiro                           privado trabalhando: Logico                        
+                                                  //Metodos
+ //Metodos                                        publico metodo mudarTrabalho() 
+publico metodo ReceberAum()                         (...)
+(...)                                             FimMetodo
+FimMetodo                                         //Metodos Especiais
+ //Metodos Especiais                              publico metodo getSetor()
+publico metodo getEspecialidade()                   (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo getTrabalhando()   
+publico metodo getSalario()                         (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo setSetor()
+                                                    (...)
+                                                   FimMetodo
+                                                  publico metodo setTrabalhando()
+publico metodo setEspecialidadee()                  (...)
+(...)                                             FimMetodo
+FimMetodo
+publico metodo setSalario()
+(...)
+FimMetodo
+
+FimClasse
+
+
+
+========= PROGRAMA PRINCIPAL ===========
+
+p1=new Pessoa()
+p2=new Aluno()
+p3=new Professor()
+p4-new Funcionario()
+
+p1.setNome("Pedro")
+p2.setNome("Maria")
+p3.setNome("Claudio")
+p4.SetNome("Fabiana")
+
+p2.setCurso("Informatica")
+p3.setSalario("2500.75")
+p4.setSetor("Estoque")
+
+p1.receberAum(550.20)     //Não poderia, p1 nao tem salario, somente o Professor tem metodo de receber aumento.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
