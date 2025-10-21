@@ -905,6 +905,111 @@ p4.setSetor("Estoque")
 
 p1.receberAum(550.20)     //Não poderia, p1 nao tem salario, somente o Professor tem metodo de receber aumento.
 
+***** NEVAGACAO PELA HERANÇA ******
+
+A -> AA -> AAA       Neste caso A seria a Raiz(Superclasse ou Progenitora), AA (Filha de A e Superclasse de AAA e AAB) e AAA e AAB sao filhas de AA)
+        -> AAB
+                     Ancestral seria a analise da AAB para A
+                     Descencedente seria de A para AAB
+                     Analisando a arvore de cima para baixo é Especialização
+                     Analisando de baixo para cima seria Generalização
+
+TIPOS de Herança (Dois exemplos)
+
+Herença de implementação - Considerado hertança pobre, é o tipo mais simples. Herda as caracteristicas da mãe e nao acrescenta mais nenhuma
+Pessoa(nome, idade, sexo, fazeraniversario()) -> visitante
+
+Herança para diferença - Mais completa, herda as caracteristicas da mae e acrescenta outras caracteristicas.
+Pessoa(nome, idade, sexo, fazeraniversario()) -> aluno (matricula, curso, pagarMensalidade()) -> Bolsista(bolsa, renovaBolsa(), pagarMesalidade) Obs. Podemos sobrepor um metodo.
+
+**** Abstrato e final *****
+Classe Abstrata - Nao pode ser instanciada. Só pode servir como progenitora. Não pode gerar objetos.
+Metodo Abstrato - Declarado, mas nao implementado na progenitora. Só pode ser colocado dentro de uma interface oou uma classe abstrata
+Classe Final - Não pode ser herdada por outra classe. Obrigatoriamente folha, nao pode ter filhos.
+Metodo Final - Nao pode ser sobrescritos pelas suas sub-classes. Obrigatoriamente herdado.
+
+Classe abstrata Pessoa                                     Classe Aluno estende Pessoa                                                            
+  //Atributos                                      //Atributos
+privado nome: caracter                            privado: matr:Inteiro                           
+privado idade: Inteiro                            privado: curso: Caracter                        
+privado sexo: Caracter                             //Metodos
+ //Metodos                                        publico metodo cancelarMatr() 
+publico metodo final fazerAniv()                         (...)
+(...)                                             FimMetodo
+  fimMetodo                                        //Metodos Especiais
+ //Metodos Especiais                              publico metodo getMatr()
+publico metodo getNome()                           (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo getCurso()   
+publico metodo getIdade()                         (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo setMatr()
+publico metodo getSexo()                          (...)
+(...)                                             FimMetodo
+FimMetodo                                         publico metodo setCurso()
+publico metodo setNome()                          (...)
+(...)                                             FimMetodo
+FimMetodo                                         //Herança para diferença, herdou e implementou outras caracteristicas
+publico metodo setIdade()
+(...)
+FimMetodo
+publico metodo setSexo()
+(...)
+FimMetodo
+
+FimClasse
+
+
+
+Classe visitante estende Pessoa                                  Classe Bolsista estende Aluno
+ //Metodos                                                       privado bolsa: inteiro
+publico metodo final fazerAniv()                                 publico metodo RonovarBolsa()
+(...)                                                            fimmetodo
+  fimMetodo                                                      @sobrepor
+ //Metodos Especiais                                             publico metodo PagarMensalidade()
+publico metodo getNome()                                         fimmetodo
+(...)                                                            // Bolsista recebe as caracteristicas de Aluno e tambem de Pessoa, já que Aluno recebe de pessoa
+FimMetodo                                                        //Bolsista paga mensalidade diferente de aluno, por isso sobrepor a herdada
+publico metodo getIdade()                     
+(...)                                             
+FimMetodo                                         
+publico metodo getSexo()                          
+(...)                                            
+FimMetodo                                         
+publico metodo setNome()                          
+(...)                                             
+FimMetodo                                         
+publico metodo setIdade()
+(...)
+FimMetodo
+publico metodo setSexo()
+(...)
+FimMetodo
+
+FimClasse
+                                                                                                               
+                                        
+//Herança Implementação                                           
+                                                
+//Programa Principal
+p1 = novo Pessoa() - Neste caso nao irá funcionar, Pessoa é abstrata nao recebe objeto.
+v1 - novo Visitante() - Neste caso funciona, Visitante herda pessoa mas apenas as carcteristicas e nao o tipo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
