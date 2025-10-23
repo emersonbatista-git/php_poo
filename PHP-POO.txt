@@ -997,6 +997,195 @@ v1 - novo Visitante() - Neste caso funciona, Visitante herda pessoa mas apenas a
 
 
 
+********** POLIMORFISMO ***********
+
+Conceito - POLI = Muitas
+           MORFISMO = Formas
+
+Permite que o memso nome represente varios comportamentos diferentes.
+
+Assinatura do Metodo - Quantidade e os tipos dos parametros:
+
+Neste exemplo eles tem a mesma assinatura, pois tem dois parametros(n1 e n2) e a mesma quantidade, o valor que retorna nao interfere:
+
+publico metodo calcMedia(n1: Real, 
+                         n2: Real): Real
+
+publico metodo calcMedia(v1: Real,
+                         v2: Real):Inteiro
+
+Neste exemplo eles tem a mesma assinatura, pois tem dois parametros(n1 e n2) e a mesma quantidade, o valor que retorna nao interfere. 
+
+
+Neste exemplo eles nao tem a mesma assinatura, pois tem dois parametros(n1 e n2) e a mesma quantidade, mas o terceiro tem um a mais. 
+publico metodo calcMedia(n1: Real, 
+                         n2: Real): Real
+
+publico metodo calcMedia(v1: Real,
+                         v2: Real):Inteiro
+
+publico metodo calcMedia(v1: Real,
+                         v2: Real):Inteiro
+
+****** TIPOS DE POLIMORFISMO ********
+
+Tem varios tipos, mas iremos trabalhar com os dois principais
+
+1 - Sobreposição 
+2 - Sobrecarga
+
+* Sobreposição
+Utilizamos o mesmo metodo com resultado diferente, um sobrepos o metodo da superclasse(Classe Mãe)
+==================================
+classe abstrata Animal
+protegido peso: Real
+protegido idade: Inteiro
+protegido membros: Inteiro
+publico metodo abstrato locomover()
+publico metodo abstrato alimentar()
+publico metodo abstrato emitirSom()
+FimClasse
+
+
+Classe Mamifero estende Animal                          Classe Canguru estende Mamifero
+privado corPelo: Caractere                                publico metodo usarBolsa()
+@Sobrepor                                                   Escreva("Usando Bolsa")
+publico metodo locomper()                               FimMetodo
+  Escreva("Correndo")                                   @Sobrepor
+FimMetodo                                                 publico metodo locomover()
+@Sobrepor                                                 Escreva ("Saltando")
+publico metodo alimentar()                               FimMetodo
+ Escreva("Mamando")                                     FimClasse
+FimMetodo
+@Sobrepor
+publico metodo emitirSom()                             Classe Cachorro estende Mamifero
+ Escreva("Som de mamifero)                               publico metodo enterrarOsso()
+FimMetodo                                                 Escreva ("Enterrando osso")
+FimClasse                                                FimMetodo
+                                                        Publico metodo abanarRabo()
+                                                        FimMetodo
+                                                        FimClasse
+
+
+
+Classe Reptil estende Animal                           Classe Cobra estende Reptil
+privado corEscama: Caractere                           FimClasse
+@Sobrepor
+publico metodo locomper()
+  Escreva("Rastejando")                                Classe Tartaruga estende Reptil
+FimMetodo                                                 publico metodo locomover()
+@Sobrepor                                                escreva ("Andando beeeeem devagar")
+publico metodo alimentar()
+ Escreva("Comendo Vegetais")                           FimMetodo
+FimMetodo                                              FimClasse
+@Sobrepor
+
+publico metodo emitirSom()
+ Escreva("Som de Reptil")
+FimMetodo
+FimClasse
+
+Classe Peixe estende Animal                              Classe GoldFish estende Peixe
+privado corEscama: Caractere                             FimClasse
+@Sobrepor
+publico metodo locomper()
+  Escreva("Nadando")
+FimMetodo
+@Sobrepor
+publico metodo alimentar()
+ Escreva("Comendo subtância")
+FimMetodo
+@Sobrepor
+
+publico metodo emitirSom()
+ Escreva("Peixe não faz som")
+FimMetodo
+
+publico metodo soltandoBolha()
+ Escreva("Soltou uma bolha")
+FimMetodo
+
+FimClasse
+
+
+Classe Ave estende Animal                                 Classe Arara estende Ave
+privado corPena: Caractere                                 FimClasse
+@Sobrepor
+publico metodo locomper()
+  Escreva("Voando")
+FimMetodo
+@Sobrepor
+publico metodo alimentar()
+ Escreva("Comendo Frutas")
+FimMetodo
+@Sobrepor
+
+publico metodo emitirSom()
+ Escreva("Som de ave")
+FimMetodo
+
+publico metodo fazerNinho()
+ Escreva("Construiu um ninho")
+FimMetodo
+
+FimClasse
+
+
+// Programa Principal
+n = novo Animal()  Nao irá funcionar por ser classe abstrata
+m = novo Mamifero()
+r = novo Reptil()
+p = novo Peixe()
+a = novo Ave()
+c = novo Canguru()
+k = novo Cachorro()
+
+
+m.setPeso(85.3)
+m.setIdade(2)
+m.setMembros(4)
+m.locomover()   // Correndo
+m.alimentar()   // Mamando
+m.emitirSom()   // Som de mamifero 
+
+c.setPeso(85.3)
+c.setIdade(2)
+c.setMembros(4)
+c.locomover()  // Saltando
+c.alimentar()  // Mamando
+c.emitirSom()  // Som de Mamifero
+
+p.setPeso(0.35)
+p.setIdade(1)
+p.setMembros(0)
+p.locomover()
+p.alimentar()
+p.emitirSom()
+p.soltarBolha()
+
+a.setPeso(0.89)
+a.setIdade(2)
+a.setMembros(2)
+a.locomover()
+a.alimentar()
+a.emitirSom()
+a.fazerNinho()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
