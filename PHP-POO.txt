@@ -1033,7 +1033,7 @@ Tem varios tipos, mas iremos trabalhar com os dois principais
 
 1 -Sobreposição - Só pode ser feito em com a mesma assinatura e em metodos diferentes, nao pode sobrepor mais de uma vez na mesama classe
 
-2 - Sobrecarga - Temos metodos com o memso nome, com assinatura diferente dentro da mesma classe.
+2 - Sobrecarga - Temos metodos com o memso nome, com assinatura diferente dentro da mesma classe. Porem o PHP nao aceita sobrecarga, uma forma de resolver é criar as funções com nomes diferentes.
 
 * Sobreposição
 Utilizamos o mesmo metodo com resultado diferente, um sobrepos o metodo da superclasse(Classe Mãe)
