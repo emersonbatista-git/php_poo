@@ -1031,8 +1031,9 @@ publico metodo calcMedia(v1: Real,
 
 Tem varios tipos, mas iremos trabalhar com os dois principais
 
-1 - Sobreposição 
-2 - Sobrecarga
+1 -Sobreposição - Só pode ser feito em com a mesma assinatura e em metodos diferentes, nao pode sobrepor mais de uma vez na mesama classe
+
+2 - Sobrecarga - Temos metodos com o memso nome, com assinatura diferente dentro da mesma classe.
 
 * Sobreposição
 Utilizamos o mesmo metodo com resultado diferente, um sobrepos o metodo da superclasse(Classe Mãe)
@@ -1170,6 +1171,115 @@ a.locomover()
 a.alimentar()
 a.emitirSom()
 a.fazerNinho()
+
+
+********* SOBRECARGA ***********
+
+classe abstrata Animal
+ protegido peso: Real
+ protegido idade: Inteiro
+ Protegido membros: Inteiro
+ publico metodo abstrato emitirSom()
+FimClasse
+
+classe Mamifero estende Animal
+ protegido corPelo: Caracter
+@sobrepor
+ publico metodo emitirSom()
+  Escreva ("Som de Mamifero")
+ fimMetodo
+Fimclasse
+  
+classe Lobo estende Mamifero
+ protegido corPelo: Caracter
+@sobrepor
+ publico metodo emitirSom()
+  Escreva ("Auuuuuuu!")
+ fimMetodo
+Fimclasse
+
+
+
+classe Cachorro estende Lobo
+ protegido corPelo: Caracter
+@sobrepor
+ publico metodo emitirSom()
+  Escreva ("Au! Au! Au!")
+ fimMetodo
+ 
+ publico metodo reagir(frase: Caracter)
+   se(frase="toma comida" ou frase="Olá")
+      escreva ("Abanar e Latir")
+   senao 
+      escreva ("Rosnar")
+   fimse
+  
+ Fimmetodo
+
+publico metodo reagir(hora, min: Inteiro)
+  se (hora<12)
+   Escreva ("Abanar")
+  senaose (hora>= 18)
+   escreva ("Ignorar")
+  senao 
+   escreva ("Abanar e Latir")
+  fimse
+ Fimmetodo
+
+publico metodo reagir(dono: logico)
+    se(dono=verdadeiro)
+       Escreva("abanar")
+    senao
+     escreva ("Rosnar e latir")
+    fimse
+ Fimmetodo
+
+publico metodo reagir(idade: Inteiro, peso: Real)
+  se (idade<5)
+   se (peso>10)
+     escreva ("Abanar")
+  senao 
+    escreva ("Latir")
+  fimse
+ senao
+ se (idade<5)
+   se (peso<10)
+     escreva ("Rosnar")
+  senao 
+    escreva ("Ignorar")
+  fimse
+    
+
+
+ Fimmetodo
+
+Fimclasse
+
+////Programa Principal
+
+c =novo Cachorro()
+
+c.reagir("Olá")              //Abanar e Latir
+c.reagir("Vai apanhar")      //Rosnar
+c.reagir(11, 45)             //Abanar
+c.reagir(21, 00)             //Ignorar
+c.reagir(verdadeiro)         //Abanar
+c.reagir(falso)              //Rosnar e latir
+c.reagir(2, 12.5)            //Latir
+c.reagir(17, 4.5)            //Rosnar
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
