@@ -30,7 +30,7 @@ class Gafanhoto extends Pessoa {
     }
     
     public function setTotAssistido($TotAssistido) {
-        $this->TotAssistido = $TotAssistido;
+        $this->totAssistido = $TotAssistido;
     }
 
 }
